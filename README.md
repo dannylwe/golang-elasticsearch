@@ -52,6 +52,14 @@ use browser and go to localhost:9200
    }
 }
 
+## Add data to 'students' index
+`POST localhost:9200/students/_doc`
+{
+	"name":"Alice",
+	"age":17,
+	"average_score":81.1
+}
+
 ### Helpful Links
 - https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html#docker-cli-run-dev-mode  
 - https://www.elastic.co/guide/en/elastic-stack-get-started/current/get-started-docker.html  
