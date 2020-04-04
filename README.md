@@ -30,6 +30,28 @@ use browser and go to localhost:9200
 }
 '''
 
+## Create an Index Called 'students'
+`PUT localhost/9200/students`
+{
+	"settings": {
+    	"number_of_shards": 1,
+    	"number_of_replicas": 1
+	},
+   "mappings": {
+       "properties": {
+         "name": {
+               "type": "text"
+         },
+         "age": {
+               "type": "integer"      
+         },
+         "average_score": {
+               "type": "float"
+         }
+     }
+   }
+}
+
 ### Helpful Links
 - https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html#docker-cli-run-dev-mode  
 - https://www.elastic.co/guide/en/elastic-stack-get-started/current/get-started-docker.html  
