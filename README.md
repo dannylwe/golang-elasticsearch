@@ -8,9 +8,9 @@ docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elas
 `RUN` docker-compose up
 
 ## Verify if elasticsearch is running
-use browser and go to localhost:9200
+`use browser and go to localhost:9200`
 
-'''
+```
 {
   "name" : "d73a5341942e",
   "cluster_name" : "docker-cluster",
@@ -28,10 +28,11 @@ use browser and go to localhost:9200
   },
   "tagline" : "You Know, for Search"
 }
-'''
+```
 
 ## Create an Index Called 'students'
-`PUT localhost/9200/students`
+`PUT localhost/9200/students`  
+```
 {
 	"settings": {
     	"number_of_shards": 1,
@@ -51,36 +52,64 @@ use browser and go to localhost:9200
      }
    }
 }
+```
 
 ## Add data to 'students' index
-`POST localhost:9200/students/_doc`
+`POST localhost:9200/students/_doc`  
+```
 {
-	"name":"Alice",
-	"age":17,
-	"average_score":81.1
+	"name":"Alice",  
+	"age":17,  
+	"average_score":81.1 
 }
+```
 
 ## Buk Insert to index
-`POST localhost:9200/students/_bulk`
-{ "index":{"_index": "students" } }
-{ "name":"john doe","age":18, "average_score":77.7 }
-{ "index":{"_index": "students" } }
-{ "name":"bob","age":16, "average_score":65.5 }
-{ "index":{"_index": "students" } }
-{ "name":"mary doe","age":18, "average_score":97.7 }
-{ "index":{"_index": "students" } }
-{ "name":"eve","age":15, "average_score":98.9 }
+`POST localhost:9200/students/_bulk`  
+```
+{ "index":{"_index": "students" } }  
+{ "name":"john doe","age":18, "average_score":77.7 }  
+{ "index":{"_index": "students" } }  
+{ "name":"bob","age":16, "average_score":65.5 }  
+{ "index":{"_index": "students" } }  
+{ "name":"mary doe","age":18, "average_score":97.7 }  
+{ "index":{"_index": "students" } }  
+{ "name":"eve","age":15, "average_score":98.9 }  
+```
 
 ## Doing search
-`localhost:9200/_search`
+`POST localhost:9200/_search`  
+```
 {
     "query" : {
         "match" : { "name" : "doe" }
     }
 }
+```
+
+## Example of complex queries
+`GET localhost:9200/_search`
+
+```
+{
+  "query": { 
+    "bool": { 
+      "must": [
+        { "match": { "title":   "Search"        }},
+        { "match": { "content": "Elasticsearch" }}
+      ],
+      "filter": [ 
+        { "term":  { "status": "published" }},
+        { "range": { "publish_date": { "gte": "2015-01-01" }}}
+      ]
+    }
+  }
+}
+```
 
 ### Helpful Links
 - https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html#docker-cli-run-dev-mode  
 - https://www.elastic.co/guide/en/elastic-stack-get-started/current/get-started-docker.html  
 - https://github.com/olivere/elastic  
+- https://www.freecodecamp.org/news/go-elasticsearch/  
 - https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.html#rest-apis 
