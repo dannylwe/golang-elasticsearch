@@ -83,4 +83,4 @@ use browser and go to localhost:9200
 - https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html#docker-cli-run-dev-mode  
 - https://www.elastic.co/guide/en/elastic-stack-get-started/current/get-started-docker.html  
 - https://github.com/olivere/elastic  
-- https://www.freecodecamp.org/news/go-elasticsearch/  
+- https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.html#rest-apis 
