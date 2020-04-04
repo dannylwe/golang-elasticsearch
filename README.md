@@ -71,6 +71,13 @@ use browser and go to localhost:9200
 { "index":{"_index": "students" } }
 { "name":"eve","age":15, "average_score":98.9 }
 
+## Doing search
+`localhost:9200/_search`
+{
+    "query" : {
+        "match" : { "name" : "doe" }
+    }
+}
 
 ### Helpful Links
 - https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html#docker-cli-run-dev-mode  
