@@ -60,6 +60,18 @@ use browser and go to localhost:9200
 	"average_score":81.1
 }
 
+## Buk Insert to index
+`POST localhost:9200/students/_bulk`
+{ "index":{"_index": "students" } }
+{ "name":"john doe","age":18, "average_score":77.7 }
+{ "index":{"_index": "students" } }
+{ "name":"bob","age":16, "average_score":65.5 }
+{ "index":{"_index": "students" } }
+{ "name":"mary doe","age":18, "average_score":97.7 }
+{ "index":{"_index": "students" } }
+{ "name":"eve","age":15, "average_score":98.9 }
+
+
 ### Helpful Links
 - https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html#docker-cli-run-dev-mode  
 - https://www.elastic.co/guide/en/elastic-stack-get-started/current/get-started-docker.html  
