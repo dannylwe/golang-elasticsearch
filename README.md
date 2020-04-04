@@ -1,3 +1,5 @@
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/78e23d34d5eb859ab743)  
+
 ## Pull images
 docker pull docker.elastic.co/elasticsearch/elasticsearch:7.4.2
 
@@ -41,14 +43,14 @@ docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elas
    "mappings": {
        "properties": {
          "name": {
-               "type": "text"
-         },
+            "type": "text"
+        },
          "age": {
-               "type": "integer"      
-         },
+            "type": "integer"      
+        },
          "average_score": {
-               "type": "float"
-         }
+            "type": "float"
+        }
      }
    }
 }
